@@ -1,5 +1,6 @@
 package com.dcsic.sig_cim.Model.entities;
 
+import com.dcsic.sig_cim.Model.enumerations.eRole;
 import com.dcsic.sig_cim.Model.enumerations.eStructure;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -20,7 +21,9 @@ public class Users {
     private String prenom;
     private String email;
     private String password;
-    private String role;
+
+    @Enumerated(EnumType.STRING)
+    private eRole role;
     private eStructure structure;
 
     @OneToMany(mappedBy = "user")
